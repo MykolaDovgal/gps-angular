@@ -1,0 +1,40 @@
+header{
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px 0;
+    position: relative;
+}
+
+header .logo{
+    margin: 0 auto;
+    display: table;
+}
+
+header .mdl-button--raised{
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    right: 25px;
+    margin:auto;
+    height: 45px;
+    min-width: 165px;
+}
+
+
+.btn-log-out{
+    position: absolute;
+    right: 25px;
+    top: 0;
+    bottom: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin: auto;
+    height: 43px;
+    width: 170px;
+    color: #fff;
+
+}
+
+.btn-orang{
+    background:rgba(239, 124, 0, 0.8);
+    border-radius: 0;
+}

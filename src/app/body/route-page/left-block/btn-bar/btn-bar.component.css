@@ -1,0 +1,37 @@
+.btn-orang{
+    background:rgba(239, 124, 0, 0.8);
+    border-radius: 0;
+}
+.group-button .mass{
+    width:29%;
+    display:block;
+    float:left;
+    text-align:center;
+    text-transform:uppercase;
+    font-size:24px;
+    padding:  0.59em 0;
+    background: rgba(239, 124, 0, 0.4);
+    border-radius: 0;
+}
+
+.btn-default{
+    background:rgba(255, 255, 255, 0.8);
+    font-size: 1.2vw;
+    color:#000;
+    padding: 0.42em 11px;
+    border-radius: 0;
+}
+
+.btn-default:hover{
+    background:#fff;
+}
+
+.group-button .btn-default{
+    width: 23%;
+    display: block;
+    float: left;
+}
+
+.group-button .btn-default:not(:last-child){
+    margin-right: 0.6%;
+}

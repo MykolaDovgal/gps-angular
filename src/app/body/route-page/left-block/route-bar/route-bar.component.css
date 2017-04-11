@@ -1,0 +1,45 @@
+.route-planning{
+    display: inline-block;
+    width: 100%;
+    margin:15px 0 30px;
+}
+
+.field-route{
+    background:rgba(255, 255, 255, 0.8);;
+    height:440px;
+    overflow: auto;
+}
+
+.accordion{
+    background:#fff;
+    margin-bottom: 3px;
+}
+
+.field-route::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+}
+
+.field-route::-webkit-scrollbar-thumb {
+    background: rgba(239, 124, 0, 0.8);
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+
+.field-route::-webkit-scrollbar-track {
+    background: #ffffff;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+
+.field-route::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.address-container {
+    min-height: 50px;
+}
+
+.realization-container {
+    min-height: 50px;
+}

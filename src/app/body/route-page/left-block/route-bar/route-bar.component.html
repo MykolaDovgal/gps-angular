@@ -1,0 +1,70 @@
+<!--<div class="route-planning">-->
+    <!--&lt;!&ndash; left field route&ndash;&gt;-->
+    <!--<div class="col-xs-12 col-md-6">-->
+        <!--<div class="field-route">-->
+
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;end left field route&ndash;&gt;-->
+
+    <!--&lt;!&ndash;right field route&ndash;&gt;-->
+    <!--<div class="col-xs-12 col-md-6">-->
+        <!--<div class="field-route">-->
+            <!--<md2-accordion class="wrapper-accardion" [multiple]="true">-->
+                <!--&lt;!&ndash;trip&ndash;&gt;-->
+                <!--<md2-accordion-tab *ngFor="let routeItem of routeItems" class="accordion"-->
+                                   <!--mdTooltip="{{routeItem?.Client}}" [mdTooltipShowDelay]="1000">-->
+                    <!--<md2-accordion-header>{{routeItem?.Client | stringCut : 30}}</md2-accordion-header>-->
+                    <!--<md2-accordion class="wrapper-accardion" [multiple]="true">-->
+                        <!--<md2-accordion-tab class="accordion" *ngFor="let address of routeItem.Addresses">-->
+                            <!--<md2-accordion-header>{{address.Address}}</md2-accordion-header>-->
+                            <!--<div *ngFor="let realization of address.Realizations"> {{realization.Name}}</div>-->
+                        <!--</md2-accordion-tab>-->
+                    <!--</md2-accordion>-->
+                <!--</md2-accordion-tab>-->
+                <!--&lt;!&ndash;end trip&ndash;&gt;-->
+            <!--</md2-accordion>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;end right field route&ndash;&gt;-->
+<!--</div>-->
+
+
+<div class="container route-planning" [dragula]='"bag-main"'>
+    <!-- left field route-->
+    <div class="col-xs-12 col-md-6">
+        <div class="field-route">
+            <md2-accordion style="width: 100%;height: 100%;" class="wrapper-accardion customer-container" [dragula]='"bag-customers"' [multiple]="true">
+
+            </md2-accordion>
+        </div>
+    </div>
+    <!--end left field route-->
+
+    <!--right field route-->
+    <div class="col-xs-12 col-md-6">
+        <div class="field-route">
+            <md2-accordion class="wrapper-accardion customer-container" style="width: 100%;height: 100%;" [dragula]='"bag-customers"' [multiple]="true">
+                <!--trip-->
+                <md2-accordion-tab *ngFor="let routeItem of routeItems" class="accordion customer"
+                                                                        mdTooltip="{{routeItem?.Client}}" [mdTooltipShowDelay]="1000"
+                                                                        [attr.data-guid-customer]="routeItem?.ClientGuid">
+                <md2-accordion-header  class="customer-handle">{{routeItem?.Client | stringCut : 30}}</md2-accordion-header>
+                <md2-accordion class="wrapper-accardion" [multiple]="true">
+                    <div [attr.data-guid-customer]="routeItem?.ClientGuid" class="address-container" [dragula]="'bag-customers'" >
+                        <md2-accordion-tab [attr.data-guid-customer]="routeItem?.ClientGuid" class="accordion address" *ngFor="let address of routeItem?.Addresses">
+                            <md2-accordion-header  class="address-handle">{{address?.Address}}</md2-accordion-header>
+                            <div [attr.data-guid-address]="address?.AddressGuid" class="realization-container" [dragula]="'bag-customers'">
+                                <div [attr.data-guid-address]="address?.AddressGuid" [attr.data-guid]="realization.DocGuid" class="realization-handle realization" *ngFor="let realization of address?.Realizations"> {{realization?.Name}}</div>
+                            </div>
+                        </md2-accordion-tab>
+                    </div>
+                </md2-accordion>
+            </md2-accordion-tab>
+                <!--end trip-->
+            </md2-accordion>
+        </div>
+    </div>
+    <!--end right field route-->
+
+</div>

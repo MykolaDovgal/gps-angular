@@ -1,0 +1,40 @@
+@font-face {
+    font-family: FRABK; /* Имя шрифта */
+    src: url(../fonts/FRABK.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+
+
+
+
+
+
+.map{
+    height:748px;
+    width:100%;
+}
+
+.blokc-right{
+    padding:0;
+}
+
+
+@media (max-width: 1600px){
+    .btn-default{
+        width: 32.7% !important;
+        margin-bottom:10px;
+    }
+}
+
+@media (max-width: 1420px){
+    .block-left{
+        padding: 0 15px 70px;
+    }
+}
+
+@media (max-width: 1320px){
+    .btn-default, .mass{
+        width: 49.4% !important;
+    }
+}

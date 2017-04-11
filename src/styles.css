@@ -1,1 +1,240 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+@import '~dragula/dist/dragula.css';
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background:url(img/background.jpg) no-repeat;
+    display: inline-block;
+    width: 100%;
+    background-size: cover;
+    min-width: 1200px;
+}
+
+.col-xs-12{
+    width:100%;
+    float:left;
+    padding:0 15px;
+}
+
+.col-md-6{
+    width:50%;
+    float:left;
+    padding:0 15px;
+}
+
+.row{
+    margin:0 -15px;
+}
+
+.col-md-4{
+    width: 33.33333333%;
+    float:left;
+    padding:0 15px;
+}
+
+*{
+    font-family:FRABK,sans-serif;
+}
+
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/**********drop***********/
+.mat-select-trigger{
+    height:55px !important;
+}
+
+.mat-select-placeholder{
+    font-size: 24px;
+    text-transform:uppercase;
+    color: #000;
+}
+
+.mat-select-placeholder.mat-floating-placeholder{
+    top: -40px !important;
+}
+
+.mat-select:focus:not(.mat-select-disabled) .mat-select-underline {
+    background-color:rgba(239, 124, 0, 0.8);
+}
+
+.mat-option.mat-selected {
+    color:rgba(239, 124, 0, 0.8);
+}
+
+.dropdown-select .mat-select-arrow{
+    border:none;
+    background:url(../src/img/arrow-drop.png) no-repeat;
+    width:28px;
+    height:16px;
+    padding-right: 10px;
+}
+
+.dropdown-select .mat-select-placeholder, .mat-select-value{
+    padding-left: 15px !important;
+}
+/*********************/
+
+/********calendar*********/
+.calendar .md2-datepicker-arrow{
+    display:none;
+}
+
+
+
+.calendar {
+    display:block;
+}
+
+.md2-datepicker-input{
+    height: 40px !important;
+    border-bottom: 2px solid #fff !important;
+}
+
+.md2-datepicker-icon, .md2-datepicker-clear{
+    color:#fff !important;
+}
+
+.md2-datepicker-icon svg, .md2-datepicker-icon{
+    width:30px !important;
+    height:30px !important;
+}
+
+.md2-datepicker-placeholder{
+    font-size:24px;
+    text-transform:uppercase;
+}
+
+.md2-datepicker.ng-invalid.ng-touched:not(.md2-datepicker-disabled) .md2-datepicker-input{
+    color: #f44336;
+    border-color: #f44336;
+}
+
+[aria-required=true] .md2-datepicker-placeholder::after{
+    content: "" !important;
+}
+
+.md2-datepicker-value{
+    color:#fff !important;
+}
+
+.md2-calendar-day.today, .md2-datepicker-actions .md2-button {
+    color: rgba(239, 124, 0, 0.8) !important;
+}
+
+.md2-clock-hour.active, .md2-clock-minute.active{
+    color:#fff !important;
+}
+
+.md2-datepicker-header, .md2-calendar-day.selected, .md2-calendar-day.selected:hover,
+.md2-clock-hand, .md2-clock-center, .md2-clock-hand::before, .md2-clock-hour.active, .md2-clock-minute.active{
+    background: rgba(239, 124, 0, 0.8) !important;
+}
+/********************/
+
+
+/********accordion*********/
+.md2-accordion-header{
+    font-size:18px;
+    color:#000;
+}
+
+.md2-accordion-header{
+    padding-left:10px;
+}
+
+.field-route>.wrapper-accardion>.accordion>.md2-accordion-header{
+    font-weight: bold;
+}
+
+.accordion>.md2-accordion-header{
+    font-size:20px;
+}
+
+.md2-accordion-tab-content{
+    padding:20px 0 20px 55px !important;
+}
+
+
+.md2-accordion-tab.md2-accordion-tab-active{
+    border-bottom: 1px solid rgba(239, 124, 0, 0.8);
+    box-shadow: 0 1px 0 rgba(239, 124, 0, 0.8);
+}
+
+.md2-accordion-tab.md2-accordion-tab-active>.md2-accordion-header{
+    border-color: transparent !important;
+    box-shadow: 0 1px 0 rgba(239, 124, 0, 0.8) !important;
+}
+
+.wrapper-accardion{
+    padding-right:4px;
+}
+
+.group-button .mass{
+    width:29%;
+    display:block;
+    float:left;
+    text-align:center;
+    text-transform:uppercase;
+    font-size:24px;
+    padding:  0.59em 0;
+    background: rgba(239, 124, 0, 0.4);
+    border-radius: 0;
+}
+
+/*****autocomplate********/
+.mat-input-placeholder-wrapper, .mat-input-element{
+    height:55px;
+}
+.mat-input-wrapper{
+    margin:0 !important;
+    padding:0 !important;
+}
+.mat-input-placeholder.mat-empty{
+    font-size: 24px;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.mat-input-placeholder{
+    padding: 1.3em 0 0 15px !important;
+}
+
+.mat-input-underline{
+    margin-top: 0px !important;
+}
+
+.mat-autocomplete-panel{
+    width:100%;
+    min-width:100% !important;
+}
+
+.mat-input-element{
+    padding-left:15px !important;
+}
+
+.mat-input-ripple.mat-focused, .mat-input-underline .mat-input-ripple{
+    background-color: rgba(239, 124, 0, 0.8) !important;
+}
+
+.mat-input-placeholder.mat-focused, .mat-input-placeholder.mat-float:not(.mat-empty){
+    color:#fff !important;
+    font-size:20px !important;
+    top:-7px !important;
+}
+/**************************/

@@ -1,0 +1,100 @@
+<!--wrapper dropdown -->
+<div class="wrapper-drop">
+  <form>
+    <!-- Driver -->
+      <div class="dropdown col-xs-12 col-md-6">
+        <md-input-container class="dropdown-select">
+          <input mdInput placeholder="RIDERS" [mdAutocomplete]="autoRider" [formControl]="ridersCtrl" (click)="initRidersList()">
+        </md-input-container>
+
+        <md-autocomplete #autoRider="mdAutocomplete" [displayWith]="displayFn">
+          <md-option *ngFor="let rider of filteredRiders | async" [value]="rider" (click)="selectRider(rider)">
+            {{ rider?.Name }}
+          </md-option>
+        </md-autocomplete>
+      </div>
+    <!-- end Driver -->
+
+    <!-- Car -->
+      <div class="dropdown col-xs-12 col-md-6">
+        <md-input-container class="dropdown-select">
+          <input mdInput placeholder="CAR" [mdAutocomplete]="autoCar" [formControl]="carsCtrl" (click)="initCarsList()">
+        </md-input-container>
+
+        <md-autocomplete #autoCar="mdAutocomplete" [displayWith]="displayFn">
+          <md-option *ngFor="let car of filteredCars | async" (click)="selectCar(car)" [value]="car" >
+            {{ car?.Name }}
+          </md-option>
+        </md-autocomplete>
+      </div>
+    <!-- end Car -->
+
+    <!-- Direction -->
+      <div class="col-xs-12">
+        <div class="row">
+
+          <!-- Region -->
+            <div class="dropdown col-md-4">
+              <md-input-container class="dropdown-select">
+                <input mdInput placeholder="REGION" [mdAutocomplete]="autoRegion" [formControl]="regionCtrl" (click)="initRegionsList()">
+              </md-input-container>
+
+              <md-autocomplete #autoRegion="mdAutocomplete">
+                <md-option *ngFor="let parent of filteredRegions | async" (click)="selectParent(parent)" [value]="parent">
+                  {{ parent }}
+                </md-option>
+              </md-autocomplete>
+            </div>
+          <!--end Region -->
+
+          <!-- Direction -->
+            <div class="dropdown col-md-4">
+              <md-input-container class="dropdown-select">
+                <input mdInput placeholder="DIRECTION" [mdAutocomplete]="autoDirection" [formControl]="directionCtrl" (click)="initDirectionsList()">
+              </md-input-container>
+
+              <md-autocomplete [displayWith]="displayFn" #autoDirection="mdAutocomplete">
+                <md-option *ngFor="let direction of filteredDirections | async" [value]="direction" (click)="selectDirection(direction)">
+                  {{ direction?.Name }}
+                </md-option>
+              </md-autocomplete>
+            </div>
+          <!--end Direction -->
+
+          <!-- Generate -->
+          <div class="col-md-4">
+            <button (click)="getRealizations()" md-raised-button class="btn-default col-xs-12">GET REALIZATIONS</button>
+          </div>
+          <!--end Generate -->
+
+        </div>
+      </div>
+    <!-- Direction -->
+
+  </form>
+</div>
+
+<!--wrapper calendar -->
+<div class="wrapper-calendar">
+  <!--calendar -->
+  <div class="col-xs-12 col-md-6">
+    <md2-datepicker class="calendar" [(ngModel)]="fromDate"
+                    type="date"
+                    [max]="maxDate"
+                    (change)="setDateRange()">
+    </md2-datepicker>
+  </div>
+  <!--end calendar -->
+
+  <!--calendar -->
+  <div class="col-xs-12 col-md-6">
+    <md2-datepicker class="calendar" [(ngModel)]="toDate"
+                    type="date"
+                    [min]="minDate"
+                    (change)="setDateRange()">
+    </md2-datepicker>
+  </div>
+  <!--end calendar -->
+
+</div>
+<!--end wrapper calendar -->
