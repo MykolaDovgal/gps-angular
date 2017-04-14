@@ -1,6 +1,7 @@
 import {Riders} from "./Riders";
 import {Cars} from "./Cars";
 import {Direction} from "./Direction";
+
 export class SelectedData {
     Rider: Riders;
     Car: Cars = null;

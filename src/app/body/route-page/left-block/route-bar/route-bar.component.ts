@@ -1,17 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from "../../../../Services/data.service";
-import {RouteItem} from "../../../../interfaces/RouteItem";
 import {StringCutPipe} from "../../../../common/string-cut.pipe";
 import {DragulaService} from "ng2-dragula";
+import {AddressItem} from "../../../../interfaces/AddressItem";
+import {RouteItem} from "../../../../interfaces/RouteItem";
+import {Address} from "../../../../interfaces/Address";
+import {RealizationMin} from "../../../../interfaces/RealizationMin";
+
+
+
 
 @Component({
     selector: 'app-route-bar',
     templateUrl: './route-bar.component.html',
     styleUrls: ['./route-bar.component.css'],
-
-
 })
 export class RouteBarComponent implements OnInit {
+
+     addressItems: AddressItem[] = [];
 
     constructor(private dragulaService: DragulaService, private dataService: DataService) {
 
@@ -23,15 +29,14 @@ export class RouteBarComponent implements OnInit {
 
         dragulaService.setOptions('bag-main', {
             moves: function (el, container, handle) {
-                //return !(handle.classList.contains('customer-handle') || handle.classList.contains('address-handle') || handle.classList.contains('realization-handle'));
                 return false;
             },
 
             accepts: function (el, target, source, sibling) {
                 return isElementShadow(el, target);
             }
-
         });
+
 
 
         dragulaService.setOptions('bag-customers', {
@@ -61,51 +66,59 @@ export class RouteBarComponent implements OnInit {
                     return false;
                 }
                 return false;
-            }
+            },
         });
+    }
 
-        dragulaService.drop.subscribe((value) => {
-            this.onDrop(value.slice(1),value[0]);
-        });
+    bool: boolean = false;
 
 
+
+
+    customerAddressItem(routeItem:RouteItem)
+    {
+
+        for(let i = 0;i <routeItem.Addresses.length; i+=1)
+        {
+            let tmpAddressItem = <AddressItem>{};
+            tmpAddressItem.Address = routeItem.Addresses[i].Address;
+            tmpAddressItem.AddressGuid = routeItem.Addresses[i].AddressGuid;
+            tmpAddressItem.Realizations = routeItem.Addresses[i].Realizations;
+            tmpAddressItem.LatLng = routeItem.Addresses[i].LatLng;
+            tmpAddressItem.ClientGuid = routeItem.ClientGuid;
+            this.addressItems.push(tmpAddressItem);
+        }
 
     }
+
+    addressAddressItem(addressItem:Address, clientGuid)
+    {
+        let tmpAddressItem = <AddressItem>{};
+        tmpAddressItem.Address = addressItem.Address;
+        tmpAddressItem.AddressGuid = addressItem.AddressGuid;
+        tmpAddressItem.Realizations = addressItem.Realizations;
+        tmpAddressItem.LatLng = addressItem.LatLng;
+        tmpAddressItem.ClientGuid = clientGuid;
+        this.addressItems.push(tmpAddressItem);
+
+    }
+
+    realizationAddressItem(addressItem:Address,realization:RealizationMin,clientGuid)
+    {
+        let tmpAddressItem = <AddressItem>{};
+        tmpAddressItem.Address = addressItem.Address;
+        tmpAddressItem.AddressGuid = addressItem.AddressGuid;
+        tmpAddressItem.Realizations = [realization];
+        tmpAddressItem.LatLng = addressItem.LatLng;
+        tmpAddressItem.ClientGuid = clientGuid;
+        this.addressItems.push(tmpAddressItem);
+    }
+
+
 
     ngOnInit() {
     }
 
-
-    private onDrop(args,bagName) {
-        let [el, target, source, sibling] = args; //при дропі адреси на пусте місце є два варіанта 1-батьківський елемент пустий, 2-в батьківсьькому елементі є ще дочірні
-        console.log('bugName',bagName);
-        console.log('el',el);
-        console.log('target',target);
-        console.log('source',source);
-        console.log('sibling',sibling);
-
-        if(el.classList.contains('address') && target.classList.contains('customer-container'))
-        {
-            if(source.children.length == 0){
-                let newElement = source.cloneNode(true);
-                // newElement.appendChild(el);
-                this.createCustomerElement(el);
-                sibling == null && target.children.length == 0 ? target.appendChild(newElement) : target.insertBefore(newElement,sibling);
-                target.appendChild(this.createCustomerElement(el))
-            }
-        }
-    }
-
-    createCustomerElement(addressElement){
-        console.log(addressElement.dataset.guidCustomer);
-
-        let customer = document.createElement('md2-accordion-tab');
-        customer.className += 'accordion customer';
-        customer.setAttribute('mdTooltip','lolkek4eburek');
-        customer.setAttribute('attr.data-guid-customer','some guid');
-
-        return customer;
-    }
 
 
     get routeItems() {

@@ -43,3 +43,62 @@
 .realization-container {
     min-height: 50px;
 }
+
+.collapse { display: none; }
+.collapse.in { display: block; }
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height, visibility 0.35s ease;
+}
+
+
+.container-collaps{
+    background: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3px;
+}
+
+.header-collaps{
+    display:table;
+    padding: 10px;
+}
+
+.header-collaps>*{
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.header-collaps p{
+    width:100%;
+    color: #000;
+    font-size:24px;
+}
+
+.icon-arrow{
+    width:28px;
+    height:16px;
+    background:url(/src/img/arrow-drop.png) no-repeat;
+    display:block;
+}
+
+.btn-collaps{
+    background:none;
+    border:none;
+    top: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.btn-collaps:focus,   .btn-collaps:active{
+    outline: none;
+}
+
+.sub-collaps{
+    padding-left: 25px;
+}
+
+.body-card{
+    padding:15px;
+    display: inline-block;
+}
